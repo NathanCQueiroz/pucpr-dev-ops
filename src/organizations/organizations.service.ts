@@ -5,6 +5,7 @@ import { UpdateOrganizationDto } from './dto/update-organization.dto';
 @Injectable()
 export class OrganizationsService {
   create(createOrganizationDto: CreateOrganizationDto) {
+    console.log(createOrganizationDto);
     return 'This action adds a new organization';
   }
 
@@ -17,6 +18,7 @@ export class OrganizationsService {
   }
 
   update(id: number, updateOrganizationDto: UpdateOrganizationDto) {
+    console.log(updateOrganizationDto);
     return `This action updates a #${id} organization`;
   }
 
