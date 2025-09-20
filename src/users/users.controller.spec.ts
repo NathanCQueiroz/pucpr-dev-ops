@@ -25,50 +25,60 @@ describe('UsersController', () => {
   it('should create a user', () => {
     const createUserDto: CreateUserDto = {};
     const expectedResult = 'This action adds a new user';
-    
-    jest.spyOn(service, 'create').mockReturnValue(expectedResult);
-    
+
+    const createSpy = jest
+      .spyOn(service, 'create')
+      .mockReturnValue(expectedResult);
+
     expect(controller.create(createUserDto)).toBe(expectedResult);
-    expect(service.create).toHaveBeenCalledWith(createUserDto);
+    expect(createSpy).toHaveBeenCalledWith(createUserDto);
   });
 
   it('should return all users', () => {
     const expectedResult = 'This action returns all users';
-    
-    jest.spyOn(service, 'findAll').mockReturnValue(expectedResult);
-    
+
+    const findAllSpy = jest
+      .spyOn(service, 'findAll')
+      .mockReturnValue(expectedResult);
+
     expect(controller.findAll()).toBe(expectedResult);
-    expect(service.findAll).toHaveBeenCalled();
+    expect(findAllSpy).toHaveBeenCalled();
   });
 
   it('should return a specific user', () => {
     const userId = '1';
     const expectedResult = 'This action returns a #1 user';
-    
-    jest.spyOn(service, 'findOne').mockReturnValue(expectedResult);
-    
+
+    const findOneSpy = jest
+      .spyOn(service, 'findOne')
+      .mockReturnValue(expectedResult);
+
     expect(controller.findOne(userId)).toBe(expectedResult);
-    expect(service.findOne).toHaveBeenCalledWith(1);
+    expect(findOneSpy).toHaveBeenCalledWith(1);
   });
 
   it('should update a user', () => {
     const userId = '1';
     const updateUserDto: UpdateUserDto = {};
     const expectedResult = 'This action updates a #1 user';
-    
-    jest.spyOn(service, 'update').mockReturnValue(expectedResult);
-    
+
+    const updateSpy = jest
+      .spyOn(service, 'update')
+      .mockReturnValue(expectedResult);
+
     expect(controller.update(userId, updateUserDto)).toBe(expectedResult);
-    expect(service.update).toHaveBeenCalledWith(1, updateUserDto);
+    expect(updateSpy).toHaveBeenCalledWith(1, updateUserDto);
   });
 
   it('should remove a user', () => {
     const userId = '1';
     const expectedResult = 'This action removes a #1 user';
-    
-    jest.spyOn(service, 'remove').mockReturnValue(expectedResult);
-    
+
+    const removeSpy = jest
+      .spyOn(service, 'remove')
+      .mockReturnValue(expectedResult);
+
     expect(controller.remove(userId)).toBe(expectedResult);
-    expect(service.remove).toHaveBeenCalledWith(1);
+    expect(removeSpy).toHaveBeenCalledWith(1);
   });
 });

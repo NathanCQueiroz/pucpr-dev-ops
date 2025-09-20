@@ -25,50 +25,62 @@ describe('OrganizationsController', () => {
   it('should create an organization', () => {
     const createOrganizationDto: CreateOrganizationDto = {};
     const expectedResult = 'This action adds a new organization';
-    
-    jest.spyOn(service, 'create').mockReturnValue(expectedResult);
-    
+
+    const createSpy = jest
+      .spyOn(service, 'create')
+      .mockReturnValue(expectedResult);
+
     expect(controller.create(createOrganizationDto)).toBe(expectedResult);
-    expect(service.create).toHaveBeenCalledWith(createOrganizationDto);
+    expect(createSpy).toHaveBeenCalledWith(createOrganizationDto);
   });
 
   it('should return all organizations', () => {
     const expectedResult = 'This action returns all organizations';
-    
-    jest.spyOn(service, 'findAll').mockReturnValue(expectedResult);
-    
+
+    const findAllSpy = jest
+      .spyOn(service, 'findAll')
+      .mockReturnValue(expectedResult);
+
     expect(controller.findAll()).toBe(expectedResult);
-    expect(service.findAll).toHaveBeenCalled();
+    expect(findAllSpy).toHaveBeenCalled();
   });
 
   it('should return a specific organization', () => {
     const organizationId = '1';
     const expectedResult = 'This action returns a #1 organization';
-    
-    jest.spyOn(service, 'findOne').mockReturnValue(expectedResult);
-    
+
+    const findOneSpy = jest
+      .spyOn(service, 'findOne')
+      .mockReturnValue(expectedResult);
+
     expect(controller.findOne(organizationId)).toBe(expectedResult);
-    expect(service.findOne).toHaveBeenCalledWith(1);
+    expect(findOneSpy).toHaveBeenCalledWith(1);
   });
 
   it('should update an organization', () => {
     const organizationId = '1';
     const updateOrganizationDto: UpdateOrganizationDto = {};
     const expectedResult = 'This action updates a #1 organization';
-    
-    jest.spyOn(service, 'update').mockReturnValue(expectedResult);
-    
-    expect(controller.update(organizationId, updateOrganizationDto)).toBe(expectedResult);
-    expect(service.update).toHaveBeenCalledWith(1, updateOrganizationDto);
+
+    const updateSpy = jest
+      .spyOn(service, 'update')
+      .mockReturnValue(expectedResult);
+
+    expect(controller.update(organizationId, updateOrganizationDto)).toBe(
+      expectedResult,
+    );
+    expect(updateSpy).toHaveBeenCalledWith(1, updateOrganizationDto);
   });
 
   it('should remove an organization', () => {
     const organizationId = '1';
     const expectedResult = 'This action removes a #1 organization';
-    
-    jest.spyOn(service, 'remove').mockReturnValue(expectedResult);
-    
+
+    const removeSpy = jest
+      .spyOn(service, 'remove')
+      .mockReturnValue(expectedResult);
+
     expect(controller.remove(organizationId)).toBe(expectedResult);
-    expect(service.remove).toHaveBeenCalledWith(1);
+    expect(removeSpy).toHaveBeenCalledWith(1);
   });
 });

@@ -21,20 +21,20 @@ describe('OrganizationsService', () => {
   it('should create an organization', () => {
     const createOrganizationDto: CreateOrganizationDto = {};
     const result = service.create(createOrganizationDto);
-    
+
     expect(result).toBe('This action adds a new organization');
   });
 
   it('should return all organizations', () => {
     const result = service.findAll();
-    
+
     expect(result).toBe('This action returns all organizations');
   });
 
   it('should return a specific organization', () => {
     const organizationId = 1;
     const result = service.findOne(organizationId);
-    
+
     expect(result).toBe('This action returns a #1 organization');
   });
 
@@ -42,14 +42,14 @@ describe('OrganizationsService', () => {
     const organizationId = 1;
     const updateOrganizationDto: UpdateOrganizationDto = {};
     const result = service.update(organizationId, updateOrganizationDto);
-    
+
     expect(result).toBe('This action updates a #1 organization');
   });
 
   it('should remove an organization', () => {
     const organizationId = 1;
     const result = service.remove(organizationId);
-    
+
     expect(result).toBe('This action removes a #1 organization');
   });
 });
