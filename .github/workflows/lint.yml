@@ -30,15 +30,8 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       with:
         args: |
-          {
-            "embeds": [
-              {
-                "title": "✅ Lint Check Concluído com Sucesso",
-                "description": "Um ou mais commits foram adicionados e a verificação de lint foi concluída com sucesso!",
-                "color": 3066993
-              }
-            ]
-          }
+          ✅ **Lint Check Concluído com Sucesso**
+          Um ou mais commits foram adicionados e a verificação de lint foi concluída com sucesso!
     
     - name: Discord Notification - Failure
       if: failure()
@@ -47,12 +40,5 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       with:
         args: |
-          {
-            "embeds": [
-              {
-                "title": "❌ Lint Check Concluído com Falha",
-                "description": "Um ou mais commits foram adicionados e a verificação de lint foi concluída com FALHA!",
-                "color": 15158332
-              }
-            ]
-          }
+          ❌ **Lint Check Concluído com Falha**
+          Um ou mais commits foram adicionados e a verificação de lint foi concluída com **FALHA**!

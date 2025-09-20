@@ -30,15 +30,8 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       with:
         args: |
-          {
-            "embeds": [
-              {
-                "title": "✅ Tests Concluído com Sucesso",
-                "description": "Um ou mais commits foram adicionados e os testes foram concluídos com sucesso!",
-                "color": 3066993
-              }
-            ]
-          }
+          ✅ **Tests Concluídos com Sucesso**
+          Um ou mais commits foram adicionados e os testes foram concluídos com sucesso!
     
     - name: Discord Notification - Failure
       if: failure()
@@ -47,12 +40,5 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       with:
         args: |
-          {
-            "embeds": [
-              {
-                "title": "❌ Tests Concluído com Falha",
-                "description": "Um ou mais commits foram adicionados e os testes foram concluídos com FALHA!",
-                "color": 15158332
-              }
-            ]
-          }
+          ❌ **Tests Concluídos com Falha**
+          Um ou mais commits foram adicionados e os testes foram concluídos com **FALHA**!
